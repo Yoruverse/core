@@ -1,4 +1,5 @@
 export * from "./client"
+export * from "./media/utils"
 export * from "./countries"
 export * from "./database"
 export * from "./utils"

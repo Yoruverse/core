@@ -1,5 +1,5 @@
-export * from "./utils";
-import { Yoru, YoruError, Anime, Manga, Database, Countries } from "../../core";
+import { Yoru, YoruError, Database, Countries } from "..";
+import { Anime, Manga } from "./utils";
 import { GetMediaByTitleOptions, TableConstructor, ReadMediaOptions, ReadMediaResponse, MediaResponse } from "../../types";
 
 export class Media {
@@ -92,6 +92,9 @@ export class Media {
         try {
 
             const res = await this.read({ by: "ID", value: id });
+
+            if (res.documents.length === 0) return undefined;
+
             const media = res.documents[0];
 
             if (media.type === "ANIME") {
@@ -121,6 +124,8 @@ export class Media {
 
             const res = await this.read({ by: "TITLE", value: title, limit: limit || 1, exact: exact || false });
             const documents = res.documents;
+
+            if (documents.length === 0) return [];
 
             return documents.map((media) => {
 

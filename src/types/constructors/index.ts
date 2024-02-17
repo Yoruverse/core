@@ -1,4 +1,4 @@
-import { Yoru } from "../../core";
+import { Database, Yoru } from "../../core";
 import { YoruApiErrors } from "../../types";
 
 export interface ClientConstructor {

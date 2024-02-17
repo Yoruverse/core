@@ -14,13 +14,13 @@ export interface Description {
 
 export type DatabaseMedia = Omit<(MediaRequired & NullableInterface<MediaNullable>), "title" | "description">
 
-export type Anime = {
+export type AnimeProps = {
     title: Title;
     description: Description | null;
     type?: "ANIME";
 } & Omit<DatabaseMedia, "chapters" | "volumes">
 
-export type Manga = {
+export type MangaProps = {
     title: Title;
     description: Description | null;
     type?: "MANGA";
